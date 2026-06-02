@@ -28,6 +28,15 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Prepare SQLcl Projects default branch reference
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch origin main:refs/heads/main
 
       - name: Check SQLcl Project verify prerequisites
         id: verify_prerequisites

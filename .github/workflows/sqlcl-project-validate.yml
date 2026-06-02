@@ -2,7 +2,7 @@ name: SQLcl Project Validate
 
 on:
   push:
-    branches:
+    branches-ignore:
       - main
   workflow_dispatch:
 

@@ -55,7 +55,7 @@ jobs:
 
           for variable_name in TARGET_DB_CONNECTION_NAME TARGET_DB_USER TARGET_DB_PASSWORD TARGET_DB_CONNECT_STRING TARGET_DB_WALLET_ZIP_B64; do
             if [[ -z "${!variable_name:-}" ]]; then
-              echo "::error::$variable_name secret is required"
+              echo "::error::$variable_name is required"
               exit 1
             fi
           done

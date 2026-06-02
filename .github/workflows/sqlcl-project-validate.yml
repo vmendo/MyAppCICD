@@ -20,6 +20,7 @@ jobs:
 
     env:
       SQLCL_DOWNLOAD_URL: https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip
+      TARGET_DB_CONNECTION_NAME: ${{ vars.TARGET_DB_CONNECTION_NAME || 'MYAPP_PRO' }}
       TARGET_DB_USER: ${{ secrets.TARGET_DB_USER }}
       TARGET_DB_PASSWORD: ${{ secrets.TARGET_DB_PASSWORD }}
       TARGET_DB_CONNECT_STRING: ${{ secrets.TARGET_DB_CONNECT_STRING }}
@@ -52,7 +53,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          for variable_name in TARGET_DB_USER TARGET_DB_PASSWORD TARGET_DB_CONNECT_STRING TARGET_DB_WALLET_ZIP_B64; do
+          for variable_name in TARGET_DB_CONNECTION_NAME TARGET_DB_USER TARGET_DB_PASSWORD TARGET_DB_CONNECT_STRING TARGET_DB_WALLET_ZIP_B64; do
             if [[ -z "${!variable_name:-}" ]]; then
               echo "::error::$variable_name secret is required"
               exit 1
@@ -69,6 +70,16 @@ jobs:
           unzip -q "$RUNNER_TEMP/adb-wallet.zip" -d "$RUNNER_TEMP/adb-wallet"
           echo "TNS_ADMIN=$RUNNER_TEMP/adb-wallet" >> "$GITHUB_ENV"
 
+      - name: Create SQLcl target connection
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          sql -s -L /nolog <<SQL
+          connect -cloudconfig "$RUNNER_TEMP/adb-wallet.zip" -save "$TARGET_DB_CONNECTION_NAME" -savepwd -replace "$TARGET_DB_USER/$TARGET_DB_PASSWORD@$TARGET_DB_CONNECT_STRING"
+          exit
+          SQL
+
       - name: Show SQLcl version
         shell: bash
         run: sql -version
@@ -78,7 +89,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          sql -s -L "$TARGET_DB_USER/$TARGET_DB_PASSWORD@$TARGET_DB_CONNECT_STRING" <<'SQL' | tee sqlcl-project-verify.log
+          sql -s -L -name "$TARGET_DB_CONNECTION_NAME" <<'SQL' | tee sqlcl-project-verify.log
           set sqlprompt ''
           set echo off
           set feedback off

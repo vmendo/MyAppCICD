@@ -10,7 +10,7 @@ Oracle SQLcl Projects demo for database CI/CD using schema MYAPP.
 
 ## SQLcl connections
 
-The project configuration does not store a SQLcl connection name.
+The project configuration keeps sqlcl.connectionName empty.
 Development scripts pass this local connection explicitly:
 
 ```text

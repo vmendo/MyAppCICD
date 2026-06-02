@@ -24,4 +24,5 @@ credentials for validation, release, artifact generation, and deployment.
 
 - Local development cycles run `project export` and `project stage`.
 - Release creation, artifact generation, and deployment are intentionally left for GitHub Actions.
+- GitHub Actions workflows are installed by the local demo runner during project creation.
 - Export filters exclude DBTools/MCP support objects such as `DBTOOLS$MCP_LOG`.

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+<include file="myapp/tables/expenses.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/players.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/training_sessions.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/training_team_date_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/training_coach_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/training_team_fk.sql" relativeToChangelogFile="true"/>
+</databaseChangeLog>

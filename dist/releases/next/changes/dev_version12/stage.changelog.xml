@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+<include file="myapp/tables/games.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/injury_reports.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/injury_player_date_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/injury_player_fk.sql" relativeToChangelogFile="true"/>
+</databaseChangeLog>

@@ -1,0 +1,8 @@
+alter table revenues
+    add constraint revenues_team_fk
+        foreign key ( team_id )
+            references teams ( team_id )
+        enable;
+
+
+-- sqlcl_snapshot {"hash":"a655fa3a93a82c6777caea28bd2711983a3b20c8","type":"REF_CONSTRAINT","name":"REVENUES_TEAM_FK","schemaName":"MYAPP","sxml":""}

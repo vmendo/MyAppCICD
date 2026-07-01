@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+<include file="myapp/tables/expenses.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/games.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/players.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/player_contracts.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/player_game_stats.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/revenues.sql" relativeToChangelogFile="true"/>
+<include file="myapp/views/vw_game_box_scores.sql" relativeToChangelogFile="true"/>
+<include file="myapp/views/vw_player_salary_summary.sql" relativeToChangelogFile="true"/>
+<include file="myapp/views/vw_team_financial_summary.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/coaches.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/sponsors.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/sponsor_agreements.sql" relativeToChangelogFile="true"/>
+<include file="myapp/tables/teams.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/agreements_sponsor_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/agreements_team_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/coaches_team_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/contracts_player_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/contracts_status_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/expenses_team_date_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/games_team_date_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/players_status_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/players_team_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/revenues_team_date_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/stats_game_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/indexes/stats_player_ix.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/agreements_sponsor_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/agreements_team_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/coaches_team_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/contracts_player_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/expenses_team_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/games_team_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/players_team_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/revenues_team_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/stats_game_fk.sql" relativeToChangelogFile="true"/>
+<include file="myapp/ref_constraints/stats_player_fk.sql" relativeToChangelogFile="true"/>
+</databaseChangeLog>
